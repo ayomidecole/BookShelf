@@ -9,3 +9,8 @@ from models import Book, User
 def get_books():
   books = Book.query.all()
   return jsonify([book.book_to_json() for book in books]) #convert python objects from db (models) into json
+
+@app.route('/api/users', methods=['GET'])
+def get_users():
+  users = User.query.all()
+  return jsonify([user.user_to_json() for user in users])
